@@ -60,7 +60,7 @@ In materials science, understanding the chemical structure of a material involve
 
 - First we use Singular Value Decomposition (SVD) to understand how many components carry most of the variance.
 
-![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/33a11bf4-dae6-4ef3-8a35-1bb57058f533)
+![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/156a7eca-1be2-46c0-a3fd-ab992b47b1f3)
 
 
 **Insight:**  80% of the variance is in just 10 components. 
@@ -79,13 +79,15 @@ In materials science, understanding the chemical structure of a material involve
 
 - Red lines are drawn at meaningful times, from where 2D plots of the spectra are later extracted.
 
-![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/a89f62fe-130f-4588-b2c4-0f298f367e05)
+![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/2c620a33-bfb9-48a4-a861-9ac31a486442)
+
 
 
 ## Visualize Key Spectra
 - Data points (spectra) at the marked red lines are extracted for visualization.
 
-![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/074afac3-024c-4cb6-b127-e6ad60e2e03a)
+![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/0fbc3068-f17c-49f3-9070-a5ccf83c04a4)
+
 
 - By inspecting the data, there seems to be **at least 2** evident chemical signatures from the initial and final state. 
 
@@ -104,7 +106,7 @@ In materials science, understanding the chemical structure of a material involve
     - Calinski Harabasz Score: We look for the maximum value
     - Davies Bouldin Score: We look for the minimum value
 
-![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/780a08ba-5172-4e1a-93fb-d354c5c4f498)
+![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/8958f564-ced3-4c6b-9994-a8d5dd9998f6)
 
 
 **Insight:**  All curves, except the Calinski Harabasz, show that 3 clusters is the best choice.
@@ -116,8 +118,7 @@ In materials science, understanding the chemical structure of a material involve
 - The original dataset is reduced to a 2-dimensional space by Principal Component Analysis (PCA).
 - Clusters are visualized on the 2-dimensional representation by different colors. 
 
-![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/8356e24f-3329-464e-bd19-7e1b66dacae0)
-
+![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/870565c2-f182-45cd-b321-5d6b631bf685)
 
 
 **Insights:**
@@ -147,7 +148,8 @@ In materials science, understanding the chemical structure of a material involve
 - Visualize normalized 3-dimensional reduced representation: Component weights extracted from NMF as they evolve through time.
 - Each 3-dimensional data point (set of weights) is normalized so it adds up to 1 and plotted for better interpretability.
 
-![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/e2d81630-f5e2-4518-96b2-a9a5dbd09c16)
+![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/b24defa9-82f7-4d1c-8869-5bb87c389da5)
+
 
 
 **Insight:** Plotting the reduced representation through time help us understand how the chemical signatures evolve over time and gives valuable information to the researchers about the nature of the process. 
@@ -158,7 +160,8 @@ In materials science, understanding the chemical structure of a material involve
 
 - The components, or basis vectors, are the principal chemical signatures describing the process (Raman spectra).
 
-![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/2528decd-ce91-470b-95bb-ca7475eb5242)
+![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/8dab6ab9-d037-4d24-9912-5067cef58704)
+
 
 
 **Insights:** 
@@ -173,7 +176,9 @@ In materials science, understanding the chemical structure of a material involve
 
 - To verify that 3 components is the Optimum number, multiple NMF models where fitted for a range of number of components. The euclidean norm of the residuals was calculated for each model. 
 
-![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/fb67a098-81cc-4aee-b17a-0fbb26259bc6)
+![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/4a88e94c-dbf3-408b-8c89-42eae04794de)
+
+
 
 **Insights:** 
 
@@ -188,7 +193,7 @@ In materials science, understanding the chemical structure of a material involve
  
 - The original and reconstructed spectra are plotted and compared, as well as the residuals. 
 
-![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/e14e9c15-f729-45f2-971b-28fd04e8532f)
+![image](https://github.com/solutioncrafter/Finding_Chemical_Signatures_with_Usupervised_Learning/assets/126869447/9af9aba3-adad-4cc7-938a-a7d6e0c5732e)
 
 
 **Insights:** 
