@@ -1,10 +1,24 @@
+"""
+This module provides functions to evaluate and visualize the performance of
+Non-negative Matrix Factorization (NMF) models with varying numbers of
+components.
+
+It includes the following functionalities:
+
+1. Creating an NMF pipeline with a specified number of components.
+2. Calculating the norms of the residuals for different numbers of components.
+3. Plotting the evaluation curve for the number of NMF components.
+4. Evaluating the NMF model and plotting the evaluation curve.
+
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.decomposition import NMF
 from sklearn.pipeline import Pipeline
 
 
-def create_pipeline(n_components):
+def create_pipeline(n_components: int) -> Pipeline:
     """
     Create an NMF pipeline with the specified number of components.
 
@@ -27,7 +41,8 @@ def create_pipeline(n_components):
     ])
 
 
-def calculate_residuals(data, n_components_range):
+def calculate_residuals(data: np.ndarray,
+                        n_components_range: range) -> list[float]:
     """
     Calculate the norms of the residuals for different numbers of components.
 
@@ -55,7 +70,8 @@ def calculate_residuals(data, n_components_range):
     return residuals_norm
 
 
-def plot_nmf_component_evaluation_curve(n_components_range, residuals_norm):
+def plot_nmf_component_evaluation_curve(n_components_range: range,
+                                        residuals_norm: list[float]) -> None:
     """
     Plot the evaluation curve for the number of NMF components.
 
@@ -76,7 +92,8 @@ def plot_nmf_component_evaluation_curve(n_components_range, residuals_norm):
     plt.show()
 
 
-def evaluate_and_plot_nmf_component_number(data, n_components_range):
+def evaluate_and_plot_nmf_component_number(data: np.ndarray,
+                                           n_components_range: range) -> None:
     """
     Evaluate the NMF model and plot the evaluation curve.
 

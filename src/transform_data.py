@@ -1,8 +1,18 @@
+"""
+This module provides functions to load, reformat, and save Raman spectra data.
+It includes the following functionalities:
+
+1. Loading and reformatting spectra data from a .txt file.
+2. Adding a timestamp column to the DataFrame.
+3. Saving the DataFrame to a .csv file.
+
+"""
+
 import pandas as pd
 import numpy as np
 
 
-def load_and_reformat_spectra(file_path):
+def load_and_reformat_spectra(file_path: str) -> pd.DataFrame:
     """
     Load and reformat spectra data from a .txt file.
     Parameters:
@@ -27,7 +37,7 @@ def load_and_reformat_spectra(file_path):
     return df_transposed
 
 
-def add_timestamp_column(df, interval):
+def add_timestamp_column(df: pd.DataFrame, interval: float) -> pd.DataFrame:
     """
     Add a timestamp column to the DataFrame.
     Parameters:
@@ -43,7 +53,7 @@ def add_timestamp_column(df, interval):
     return df
 
 
-def save_dataframe_to_csv(df, csv_file_path):
+def save_dataframe_to_csv(df: pd.DataFrame, csv_file_path: str) -> None:
     """
     Save the DataFrame to a .csv file.
     Parameters:
@@ -54,7 +64,19 @@ def save_dataframe_to_csv(df, csv_file_path):
     print(f"Data has been successfully saved to {csv_file_path}")
 
 
-def main():
+def main() -> None:
+    """
+    Main function to execute the data loading, reformatting,
+    timestamp addition, and saving to CSV.
+
+    This function performs the following steps:
+    1. Defines the file paths for input and output.
+    2. Specifies the time interval between each timestamp.
+    3. Loads and reformats the spectra data from a .txt file.
+    4. Adds a timestamp column to the DataFrame.
+    5. Saves the reformatted DataFrame to a .csv file.
+    """
+
     # Define the file paths
     input_file_path = './data/raw/Raman_spectra_data.txt'
     output_csv_file_path = (

@@ -1,6 +1,18 @@
+"""
+This module provides functions to evaluate hierarchical clustering performance
+using various clustering metrics. It includes the following functionalities:
+
+1. Compute clustering metrics such as WCSS, silhouette scores,
+   Calinski-Harabasz scores, and Davies-Bouldin scores for different
+   numbers of clusters.
+2. Plot evaluation curves for calculated clustering metrics.
+
+"""
+
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import numpy as np
+import pandas as pd
 from sklearn.metrics import (silhouette_score, davies_bouldin_score,
                              calinski_harabasz_score)
 from sklearn.preprocessing import StandardScaler
@@ -8,7 +20,7 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.neighbors import kneighbors_graph
 
 
-def calculate_wcss(X, labels):
+def calculate_wcss(X: np.ndarray, labels: np.ndarray) -> float:
     """
     Calculate Within-Cluster Sum of Squares (WCSS) for the given data
     and labels.
@@ -28,7 +40,12 @@ def calculate_wcss(X, labels):
     return wcss
 
 
-def compute_metrics(dataframe, cluster_number=range(2, 10)):
+def compute_metrics(dataframe: pd.DataFrame, cluster_number: range) -> tuple[
+    list[float],
+    list[float],
+    list[float],
+    list[float]
+                ]:
     """
     Compute clustering metrics for different numbers of clusters.
 
@@ -37,7 +54,8 @@ def compute_metrics(dataframe, cluster_number=range(2, 10)):
     cluster_number (range): The range of cluster numbers to evaluate.
 
     Returns:
-    tuple: Containing lists of WCSS,
+    tuple: Containing lists of
+                WCSS,
                 silhouette scores,
                 Calinski-Harabasz scores,
                 and Davies-Bouldin scores.
@@ -94,7 +112,9 @@ def compute_metrics(dataframe, cluster_number=range(2, 10)):
 
 
 def plot_hierarchical_clustering_evaluation_curves(
-        dataframe, cluster_number_evaluation, cluster_number=range(2, 10)):
+        dataframe: pd.DataFrame,
+        cluster_number_evaluation: int,
+        cluster_number: range = range(2, 10)) -> None:
     """
     Plot evaluation curves for hierarchical clustering metrics.
 
